@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication1</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+
+                @*Logo*@
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/Image/hekimlogo.png" alt="Logo" width="80" height="40" class="d-inline-block align-text-top">
+                </a>
+
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item ms-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile">
+                                    <i class="fa-solid fa-user me-2"></i>@User.FindFirst("Username").Value
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">
+                                    <i class="fa-solid fa-right-from-bracket me-2"></i>Çıkış Yap
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item ms-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">
+                                    <i class="fa-solid fa-right-to-bracket me-2"></i>Giriş Yap
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">
+                                    <i class="fa-solid fa-user me-2"></i>Kayıt Ol
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" style="background-color: rgb(35, 44, 24);">
+        <div class="border-bottom">
+            <div class="alt kapsayici collapse d-sm-inline-flex justify-content-between" style="width: 100%;
+    margin: 0 auto;margin-top: 20px;padding: 20px 0;display: flex;gap: 20px;">
+                <div style="flex-grow: 1;">
+                    <ul>
+                        <li><p class="border-bottom">Hakkımızda</p></li>
+                        <br>
+                    </ul>
+                </div>
+                <div style="flex-grow: 1;">
+                    <ul>
+                        <li><p class="border-bottom">Kurumsal</p></li>
+                        <br>
+                        <ol><i class="fa-solid fa-circle-dot fa-1x me-1"></i><a style="font-size: 1.6rem;text-decoration: none;color: white;font-size: medium;" href="#">İnsan Kaynakları</a></ol>
+                        <ol><i class="fa-solid fa-circle-dot fa-1x me-1"></i><a style="font-size: 1.6rem;text-decoration: none;color: white;font-size: medium;" href="#">Müşteri Hakları</a></ol>
+                        <ol><i class="fa-solid fa-circle-dot fa-1x me-1"></i><a style="font-size: 1.6rem;text-decoration: none;color: white;font-size: medium;" href="#">Ziyaret Kuralları</a></ol>
+                        <ol><i class="fa-solid fa-circle-dot fa-1x me-1"></i><a style="font-size: 1.6rem;text-decoration: none;color: white;font-size: medium;" href="#">Sıkça_Sorulan_Sorular</a></ol>
+                        <ol><i class="fa-solid fa-circle-dot fa-1x me-1"></i><a style="font-size: 1.6rem;text-decoration: none;color: white;font-size: medium;" href="#">KVKK Güvencesi</a></ol>
+                        <ol><i class="fa-solid fa-circle-dot fa-1x me-1"></i><a style="font-size: 1.6rem;text-decoration: none;color: white;font-size: medium;" href="#">Kişisel Verilerin İşlenmesi</a></ol>
+                    </ul>
+                </div>
+                <div style="flex-grow: 1;">
+                    <ul>
+                        <li><p class="border-bottom">Sosyal Medya</p></li>
+                        <br>
+                        <ol>
+                            <i class="fa-brands fa-instagram fa-1x me-1"></i>
+                            <a style="font-size: 1.6rem;text-decoration: none;color: white;font-size: medium;" href="">Instagram</a>
+                        </ol>
+                        <ol>
+                            <i class="fa-brands fa-square-facebook fa-1x me-1"></i>
+                            <a style="font-size: 1.6rem;text-decoration: none;color: white;font-size: medium;" href="#">Facebook</a>
+                        </ol>
+                        <ol>
+                            <i class="fa-brands fa-square-twitter fa-1x me-1"></i>
+                            <a style="font-size: 1.6rem;text-decoration: none;color: white;font-size: medium;" href="#">Twitter</a>
+                        </ol>
+                        <ol>
+                            <i class="fa-brands fa-linkedin fa-1x me-1"></i>
+                            <a style="font-size: 1.6rem;text-decoration: none;color: white;font-size: medium;" href="#">LinkedIn</a>
+                        </ol>
+                    </ul>
+                </div>
+                <div style="flex-grow: 1;">
+                    <ul>
+                        <li><p class="border-bottom">İletişim</p></li>
+                        <br>
+                        <ol>
+                            <i class="fa-brands fa-square-whatsapp fa-1x me-1"></i>
+                            <a style="font-size: 1.6rem;text-decoration: none;color: white;font-size:medium;" href="#">Whatsapp</a>
+                        </ol>
+                        <ol>
+                            <i class="fa-solid fa-square-phone fa-1x me-1"></i>
+                            <a style="font-size: 1.6rem;text-decoration: none;color: white;font-size:medium;" href="#">Telefon</a>
+                        </ol>
+                        <ol>
+                            <i class="fa-solid fa-location-dot fa-1x me-1"></i>
+                            <a style="font-size: 1.6rem;text-decoration: none;color: white;font-size:medium;" href="#">Adres</a>
+                        </ol>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="alt kapsayici collapse d-sm-inline-flex justify-content-between" style="width: 100%;
+    margin: 0 auto;margin-top: 20px;padding: 20px 0;display: flex;gap: 20px;">
+
+            <div class ="col-5 offset-1">
+                Daha Fazla Bilgi İçin <a href="https://docs.microsoft.com/aspnet/core">ASP.NET Core</a>.
+            </div>
+            <div class="col-3 offset-2">
+                &copy; 2022 - Hekim Kayıt Ekranı - <a asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

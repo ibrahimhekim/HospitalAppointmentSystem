@@ -1,0 +1,47 @@
+﻿/** FOOTER **/
+
+.arkaplan {
+    background-color: rgb(54, 54, 54);
+}
+
+.kapsayici {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.alt {
+    margin-top: 20px;
+    padding: 20px 0;
+    display: flex;
+    gap: 20px;
+}
+
+    .alt .baglanti {
+        flex-grow: 1;
+    }
+
+        .alt .baglanti ul li {
+            border-bottom: dotted 1px white;
+            margin: 5px 0;
+        }
+
+        .alt .baglanti a {
+            font-size: 1.6rem;
+            text-decoration: none;
+            color: white;
+            font-size: large;
+        }
+
+.alt-kenar-10 {
+    border-bottom: 10px solid white;
+}
+
+ol > i {
+    color: white;
+}
+
+div > ul > li {
+    list-style-type: none;
+}
+
+/** FOOTER **/
